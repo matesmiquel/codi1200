@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selector de Imágenes</title>
+    <title>Tresors</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,7 +45,7 @@
 </head>
 <body>
     <header>
-        <input type="number" id="image-number" placeholder="Codi" min="1" max="99">
+        <input type="number" id="image-number" placeholder="Codi" min="0" max="999">
     </header>
     <main>
         <img id="image-display" src="" alt="Imagen">
@@ -58,13 +58,13 @@
             const image = document.getElementById('image-display');
             let number = parseInt(numberInput.value, 10);
 
-            if (number >= 1 && number <= 99) {
-                // Asegura que los números sean de dos dígitos
-                const formattedNumber = number.toString().padStart(2, '0');
-                image.src = `1200/${formattedNumber}.jpg`;
+            if (!isNaN(number) && number >= 0 && number <= 999) {
+                // Asegura que los números sean de tres dígitos
+                const formattedNumber = number.toString().padStart(3, '0');
+                image.src = `imatges/${formattedNumber}.jpg`;
                 image.style.display = 'block';
             } else {
-                alert('Por favor ingresa un número entre 01 y 99.');
+                alert('Està pensat per nombres entre 0 i 999.');
                 image.style.display = 'none';
             }
 
